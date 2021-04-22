@@ -83,6 +83,10 @@ export function getSigner(library: Web3Provider, account: string): JsonRpcSigner
   return library.getSigner(account).connectUnchecked()
 }
 
+export function getPrivateKey(): string {
+  return process.env.REACT_APP_MY_PRIVATE_KEY;
+}
+
 // account is optional
 export function getProviderOrSigner(library: Web3Provider, account?: string): Web3Provider | JsonRpcSigner {
   return account ? getSigner(library, account) : library
